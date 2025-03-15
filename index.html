@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实时公交位置显示系统</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .map-overlay {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 4px;
+        z-index: 1;
+      }
+      .map-overlay h3 {
+        margin: 0 0 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="map-overlay">
+      <h3>实时公交位置显示系统</h3>
+      <div>
+        <label for="speed">公交车速度: </label>
+        <input type="range" id="speed" min="1" max="10" value="2" step="0.5" />
+        <span id="speedValue">30.0</span> km/h
+      </div>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/",
+          "mapbox-gl": "https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"
+        }
+    }
+    </script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
